@@ -1,0 +1,22 @@
+=========
+REMEMBER!
+=========
+Each time you change the logic / update NPM package version, do the following steps:
+1. Perform a backup before any change has been made, by running on terminal 'npm run backup' or manually to the backups directory.
+2. After the change, check that everything works OK.
+3. Keep the maintenance - Every change you do - Make sure to update in this document if needed.
+4. Do commit + push on Git project repository.
+5. Keep the backup update - Every change you do - Update in iOmega (each couple of days do backup there).
+=================================
+
+ToDo tasks:
+===========
+-Investigate how to pull out all the comments from a YouTube video by YouTube key.
+-Build a script that:
+-Validates a given YouTube.
+-Pull all the comments from the video.
+-Log all the comments into a TXT file on the dist directory.
+-Print on the console the status: Writing: 45/4,837 (67.56%).
+
+Completed + canceled tasks:
+===========================
