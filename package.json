@@ -1,0 +1,25 @@
+{
+  "name": "youtube-comments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orassayag/youtube-comments.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orassayag/youtube-comments/issues"
+  },
+  "homepage": "https://github.com/orassayag/youtube-comments#readme",
+  "dependencies": {
+    "fs-extra": "^9.1.0",
+    "puppeteer": "^8.0.0",
+    "simple-youtube-api": "^5.2.1"
+  }
+}
