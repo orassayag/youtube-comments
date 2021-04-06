@@ -1,3 +1,43 @@
+// Validate Id:
+
+/* /^[A-Za-z0-9_-]{11}$/
+A more detailed example say in PHP:
+
+public static function validId($id) {
+    return preg_match('/^[a-zA-Z0-9_-]{11}$/', $id) > 0;
+} */
+
+
+// =====================
+//https://stackoverflow.com/questions/2742813/how-to-validate-youtube-video-ids
+
+/* With v3 of the YouTube API I achieved this by calling:
+
+GET https://www.googleapis.com/youtube/v3/videos?part=id&id=Tr5WcGSDqDg&key={YOUR_API_KEY}
+This returns something like:
+
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "\"dc9DtKVuP_z_ZIF9BZmHcN8kvWQ/P2cGwKgbH6EYZAGxiKCZSH8R1KY\"",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [{
+    "kind": "youtube#video",
+    "etag": "\"dc9DtKVuP_z_ZIF9BZmHcN8kvWQ/Rgd0_ApwigPcJHVX1Z2SIQ5FJtU\"",
+    "id": "Tr5WcGSDqDg"
+  }]
+}
+So you can just do a check:
+
+if(json.hasOwnProperty('pageInfo') && json.pageInfo.totalResults === 1) {
+   if(items[0].kind==='youtube#video') {
+      //valid video ID
+   }
+}
+ */
+
 
 // Comments
 'https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=2SqviHphY8A&&key={API_KEY}&pageToken=QURTSl9pMURNYzR5MlZ0QTZSTElSRXZta0NTekZ0enZ1OVRoYXNDQ2hkZFAzNFdNa2ExbDFwYXp6eU9RMWt0a2FiZ1ZNaEFvcEZtYmVCQ09DVHFsSl8tS1hjSmlRRXFL'

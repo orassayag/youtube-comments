@@ -11,12 +11,44 @@ Each time you change the logic / update NPM package version, do the following st
 
 ToDo tasks:
 ===========
--Investigate how to pull out all the comments from a YouTube video by YouTube key.
+-Investigate how to pull out all the comments from a YouTube video by YouTube key. *
 -Build a script that:
--Validates a given YouTube.
+-Validates a given YouTube video Id - Basic validation + Regex.
+-Validates that the YouTube video exists by an API call.
 -Pull all the comments from the video.
 -Log all the comments into a TXT file on the dist directory.
 -Print on the console the status: Writing: 45/4,837 (67.56%).
+-Clear all JavaScript files, and .girignore unneeded paths.
+-Add to 'misc' directoy an example JSON file as an example of an API key JSON structure file.
+-Edit the INSTRUCTIONS.md, README.MD, and package.json files.
+-Update packages + Recreate package-lock.json.
+-Remove code comments to a backup TXT file.
+-Convert " to ' in the relevant places.
+-Remove all 'debugger' keywords.
+-Recheck error numbers in error_index.txt.
+-Check 'let' needs to be converted to 'const'.
+-Check places to change from simple parameters with dynamic objects to classes.
+-Make sure all comments '//' have: 1. space 2. ends with a dot.
+-Make sure 'id' => 'Id', 'url' => 'URL', 'api' => 'API'.
+-Make sure spaces in all files between bottom, need to fix cases like this:
+}
+module.exports
+}
+export default
+-Remove duplicate import/require (convert to index.js if possible).
+-Sort alphabetically all the imports/requires by https://alphabetizer.flap.tv/.
+-Sort alphabetically all the imports/requires: external packages, settings, (containers, components, store, assert) data, models, enums, services, utils.
+-File extensions should be upper case: JSON, TXT, etc.
+-Remove duplicate empty lines: \n\s*\n\s*\n
+-Remove last empty line: \n\s*$(?!\n)
+-Detect all comments without a dot at the end: ^// .*(?<!\.)$
+-Do all the 'ToDo' tasks.
+-Format all documents.
+-Verify all works well.
+-Fix TXT files spell mistakes via Gmail.
+-Move all complete tasks from here to complete_tasks.txt.
+-Upload to GitHub.
+-Backup to iOmega.
 
 Completed + canceled tasks:
 ===========================

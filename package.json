@@ -1,25 +1,56 @@
 {
   "name": "youtube-comments",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "test.js",
+  "keywords": [
+    "scan",
+    "paths",
+    "files",
+    "directories",
+    "cspell",
+    "nspell",
+    "spell-check"
+  ],
+  "license": "UNLICENSED",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "main": "src/scripts/comments.script.js",
+  "files": [
+    "src",
+    ".eslintignore",
+    ".eslintrc",
+    ".gitignore",
+    ".jsbeautifyrc",
+    ".npmignore",
+    "INSTRUCTIONS.md",
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
-    "start": "node start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "backup": "node src/scripts/backup.script.js",
+    "sand": "node src/tests/sandbox.test.js",
+    "start": "node src/scripts/comments.script.js",
+    "stop": "taskkill -f -im node.exe"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/orassayag/youtube-comments.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/orassayag/youtube-comments/issues"
-  },
-  "homepage": "https://github.com/orassayag/youtube-comments#readme",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.23.0",
     "fs-extra": "^9.1.0",
-    "puppeteer": "^8.0.0",
-    "simple-youtube-api": "^5.2.1"
+    "is-reachable": "^5.0.0"
   }
 }
