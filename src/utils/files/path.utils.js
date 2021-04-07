@@ -20,6 +20,14 @@ class PathUtils {
     getBasename(source) {
         return path.basename(source);
     }
+
+    getExtension(targetPath) {
+        return path.extname(targetPath);
+    }
+
+    getDirectoryPath(filePath) {
+        return path.dirname(filePath);
+    }
 }
 
 module.exports = new PathUtils();
@@ -34,10 +42,6 @@ getFileName(filePath) {
 
 getFullFileName(filePath) {
     return path.parse(filePath).base;
-}
-
-getDirectoryPath(filePath) {
-    return path.dirname(filePath);
 }
 
 getDirectoryName(directoryPath) {

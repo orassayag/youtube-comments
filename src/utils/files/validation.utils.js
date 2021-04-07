@@ -1,18 +1,16 @@
+const regexUtils = require('./regex.utils');
+
 class ValidationUtils {
 
     constructor() { }
 
-    // This method validates if a given value is a valid number and returns the result.
-    isValidNumber(number) {
-        number = Number(number);
-        return !isNaN(number) && typeof number == 'number';
+    isExists(list) {
+        return list && list.length > 0;
     }
-}
 
-module.exports = new ValidationUtils();
-/* const regexUtils = require('./regex.utils'); */
-
-/*
+    isValidArray(variable) {
+        return Object.prototype.toString.call(variable) === '[object Array]';
+    }
 
     isPositiveNumber(number) {
         if (!this.isValidNumber(number)) {
@@ -21,17 +19,10 @@ module.exports = new ValidationUtils();
         return Number(number) > 0;
     }
 
-    isValidArray(variable) {
-        return Object.prototype.toString.call(variable) === '[object Array]';
-    }
-
-    isExists(list) {
-        return list && list.length > 0;
-    }
-
-    // This method validates if a given variable is a valid boolean and returns the result.
-    isValidBoolean(boolean) {
-        return typeof boolean == typeof true;
+    // This method validates if a given value is a valid number and returns the result.
+    isValidNumber(number) {
+        number = Number(number);
+        return !isNaN(number) && typeof number == 'number';
     }
 
     // This method validates that a given string exists in an array list of specific types.
@@ -44,10 +35,33 @@ module.exports = new ValidationUtils();
         return Object.values(data.enum).indexOf(data.value) > -1;
     }
 
-    isValidDate(dateTime) {
-        return dateTime instanceof Date;
-    }
-
     isValidLink(link) {
         return regexUtils.validateLinkRegex.test(link);
+    }
+
+    isValidYouTubeAPIKey(apiKey) {
+        return regexUtils.validateAPIKeyRegex.test(apiKey);
+    }
+
+    isValidYouTubeId(youtubeId) {
+        return regexUtils.validateYouTubeRegex.test(youtubeId);
+    }
+
+    isPropertyExists(obj, fieldName) {
+        return Object.prototype.hasOwnProperty.call(obj, fieldName);
+    }
+}
+
+module.exports = new ValidationUtils();
+
+/*
+
+
+    // This method validates if a given variable is a valid boolean and returns the result.
+    isValidBoolean(boolean) {
+        return typeof boolean == typeof true;
+    }
+
+    isValidDate(dateTime) {
+        return dateTime instanceof Date;
     } */

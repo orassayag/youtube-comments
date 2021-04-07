@@ -1,29 +1,63 @@
 const { LogData } = require('../../core/models');
 const pathService = require('./path.service');
-const { fileUtils } = require('../../utils');
+const { fileUtils, logUtils, textUtils } = require('../../utils');
 
 class LogService {
 
 	constructor() {
 		this.logData = null;
-				// ===PATH=== //
-				this.baseSessionPath = null;
-				this.commentsPath = null;
+		// ===PATH=== //
+		this.baseSessionPath = null;
+		this.distFileName = null;
 	}
 
-	initiate(settings) {
+	async initiate(settings, videoId) {
 		this.logData = new LogData(settings);
-		this.initiateDirectories();
+		await this.initiateDirectories(videoId);
 	}
 
-	initiateDirectories() {
+	async initiateDirectories(videoId) {
 		// ===PATH=== //
 		this.baseSessionPath = pathService.pathData.distPath;
 		fileUtils.createDirectory(this.baseSessionPath);
+		this.distFileName = `${this.baseSessionPath}\\${this.logData.distFileName}-${videoId}.txt`;
+		await fileUtils.removeFile(this.distFileName);
+	}
+
+	logProgress(data) {
+		const { currentNumber, totalNumber } = data;
+		logUtils.logProgress({
+			progressData: {
+				'Writing comments': textUtils.getNumberOfNumber({ number1: currentNumber, number2: totalNumber })
+			},
+			percentage: textUtils.calculatePercentageDisplay({
+				partialValue: currentNumber,
+				totalValue: totalNumber
+			})
+		});
+	}
+
+	async logComment(commentText) {
+		if (!commentText) {
+			return;
+		}
+		await fileUtils.appendFile({
+			targetPath: this.distFileName,
+			message: commentText
+		});
 	}
 }
 
 module.exports = new LogService();
+/* 		await fileUtils.emptyDirectory(this.baseSessionPath); */
+/* this.commentsPath = null; */
+/* 	initiateDirectories() {
+		// ===PATH=== //
+		this.baseSessionPath = pathService.pathData.distPath;
+		fileUtils.createDirectory(this.baseSessionPath);
+	} */
+/* 		logUtils.logProgress(data); */
+/* textUtils, validationUtils, */
 /* const { Color, Placeholder, StatusIcon } = require('../../core/enums');
 const { ignorePaths, ignoreWords } = require('../../configurations');
 const applicationService = require('./application.service');
@@ -45,11 +79,11 @@ const itemService = require('./item.service'); */
 		this.fileIndex = null;
 		this.logCounts = 0; */
 
-	/* 		this.getNextDirectoryIndex();
-		this.createSessionDirectory(); */
-	/* 		if (!this.logData.isLogResults) {
-			return;
-		} */
+/* 		this.getNextDirectoryIndex();
+	this.createSessionDirectory(); */
+/* 		if (!this.logData.isLogResults) {
+		return;
+	} */
 /* 	createSessionDirectory() {
 		this.sessionDirectoryPath = pathUtils.getJoinPath({
 			targetPath: this.baseSessionPath,

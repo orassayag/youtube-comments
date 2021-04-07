@@ -1,18 +1,24 @@
-class YoutubeData {
+const { Placeholder } = require('../../enums');
 
-	constructor(data) {
+class YouTubeData {
+
+	constructor(settings) {
 		// Set the parameters from the settings file.
-		const { settings } = data;
+		const { VIDEO_ID, API_BASE_URL } = settings;
 		this.apiKey = null;
-		this.videoId = null;
-		this.apiBaseURL = null;
-		this.validateVideoIdQuery = 'videos?part=#PART#&id=#VIDEO_ID#&key=#KEY#';
-		this.fetchCommentsQuery = 'commentThreads?part=#PART#&videoId=#VIDEO_ID#&maxResults=#MAX_RESULTS#&key=#KEY#&pageToken=#PAGE_TOKEN#';
+		this.videoId = VIDEO_ID;
+		this.apiBaseURL = API_BASE_URL;
+		this.commentsIndex = null;
+		this.commentsCount = null;
+		this.videoDetailsQuery = `videos?part=statistics&id=${Placeholder.VIDEO_ID}&key=${Placeholder.KEY}`;
+		this.videoCommentsQuery = `commentThreads?part=snippet&videoId=${Placeholder.VIDEO_ID}&maxResults=${Placeholder.MAX_RESULTS}&pageToken=${Placeholder.PAGE_TOKEN}&key=${Placeholder.KEY}`;
 	}
 }
 
-module.exports = YoutubeData;
-
+module.exports = YouTubeData;
+/* 		this.pageToken = ''; */
+/* 		this.validateVideoIdQuery = `videos?part=${Placeholder.PART}&id=${Placeholder.VIDEO_ID}&key=${Placeholder.KEY}`;
+		this.fetchCommentsQuery = `commentThreads?part=${Placeholder.PART}&videoId=${Placeholder.VIDEO_ID}&maxResults=${Placeholder.MAX_RESULTS}&key=${Placeholder.KEY}&pageToken=${Placeholder.PAGE_TOKEN}`; */
 /* const { timeUtils } = require('../../../utils'); */
 /* 		const { METHOD, MODE, SCAN_PATH, VALIDATION_CONNECTION_LINK } = settings;
 		this.method = METHOD;

@@ -1,8 +1,22 @@
 const fs = require('fs-extra');
+const pathUtils = require('./path.utils');
 
 class FileUtils {
 
     constructor() { }
+
+    async read(targetPath) {
+        return await fs.readFile(targetPath, 'utf-8');
+    }
+
+    createDirectory(targetPath) {
+        if (!targetPath) {
+            return;
+        }
+        if (!fs.existsSync(targetPath)) {
+            fs.mkdirSync(targetPath, { recursive: true });
+        }
+    }
 
     async isPathExists(targetPath) {
         // Check if the path parameter was received.
@@ -33,25 +47,44 @@ class FileUtils {
     async copyDirectory(sourcePath, targetPath, filterFunction) {
         await fs.copy(sourcePath, targetPath, { filter: filterFunction });
     }
+
+    isFilePath(targetPath) {
+        const stats = fs.statSync(targetPath);
+        return stats.isFile();
+    }
+
+    isDirectoryPath(targetPath) {
+        const stats = fs.statSync(targetPath);
+        return stats.isDirectory();
+    }
+
+    async removeFile(targetPath) {
+        if (await this.isPathExists(targetPath)) {
+            await fs.unlink(targetPath);
+        }
+    }
+
+    async appendFile(data) {
+        const { targetPath, message } = data;
+        if (!targetPath) {
+            throw new Error(`targetPath not found: ${targetPath} (1000016)`);
+        }
+        if (!message) {
+            throw new Error(`message not found: ${message} (1000017)`);
+        }
+        if (!await this.isPathExists(targetPath)) {
+            await fs.promises.mkdir(pathUtils.getDirectoryPath(targetPath), { recursive: true }).catch(console.error);
+        }
+        // Append the message to the file.
+        await fs.appendFile(targetPath, message);
+    }
 }
 
 module.exports = new FileUtils();
 /*
-const pathUtils = require('./path.utils');
 const textUtils = require('./text.utils'); */
 
-/* async read(targetPath) {
-    return await fs.readFile(targetPath, 'utf-8');
-}
-
-createDirectory(targetPath) {
-    if (!targetPath) {
-        return;
-    }
-    if (!fs.existsSync(targetPath)) {
-        fs.mkdirSync(targetPath, { recursive: true });
-    }
-}
+/*
 
 getAllDirectories(targetPath) {
     return fs.readdirSync(targetPath, { withFileTypes: true })
@@ -92,16 +125,6 @@ async getFilesRecursive(data) {
     return Array.prototype.concat(...files);
 }
 
-isFilePath(targetPath) {
-    const stats = fs.statSync(targetPath);
-    return stats.isFile();
-}
-
-isDirectoryPath(targetPath) {
-    const stats = fs.statSync(targetPath);
-    return stats.isDirectory();
-}
-
 getItemName(targetPath) {
     const stats = fs.statSync(targetPath);
     let itemName, itemFullName, itemDirectoryPath = null;
@@ -120,21 +143,6 @@ getItemName(targetPath) {
         itemFullName: itemFullName,
         itemDirectoryPath: itemDirectoryPath
     };
-}
-
-async appendFile(data) {
-    const { targetPath, message } = data;
-    if (!targetPath) {
-        throw new Error(`targetPath not found: ${targetPath} (1000016)`);
-    }
-    if (!message) {
-        throw new Error(`message not found: ${message} (1000017)`);
-    }
-    if (!await this.isPathExists(targetPath)) {
-        await fs.promises.mkdir(pathUtils.getDirectoryPath(targetPath), { recursive: true }).catch(console.error);
-    }
-    // Append the message to the file.
-    await fs.appendFile(targetPath, message);
 }
 
 getFileType(targetPath) {

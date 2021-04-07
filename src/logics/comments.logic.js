@@ -1,5 +1,9 @@
 const settings = require('../settings/settings');
 const { Status } = require('../core/enums');
+const { applicationService, countLimitService, logService, pathService,
+    validationService, youtubeService } = require('../services');
+    const globalUtils = require('../utils/files/global.utils');
+    const { logUtils, systemUtils } = require('../utils');
 
 class CommentsLogic {
 
@@ -11,15 +15,16 @@ class CommentsLogic {
         // Validate general settings.
         await this.validateGeneralSettings();
         // Initiate all the settings, configurations, services, etc...
-        this.initiate();
+        await this.initiate();
         // Start the log comments process.
         await this.startSession();
     }
 
-/*     initiate() {
+    async initiate() {
         this.updateStatus('INITIATE THE SERVICES', Status.INITIATE);
         pathService.initiate(settings);
-        logService.initiate(settings);
+        youtubeService.initiate(settings);
+        await logService.initiate(settings, youtubeService.youtubeData.videoId);
     }
 
     async validateGeneralSettings() {
@@ -32,6 +37,7 @@ class CommentsLogic {
 
     async startSession() {
         // Initiate.
+        this.updateStatus('FETCH COMMENTS', Status.FETCH);
         applicationService.applicationData.startDateTime = new Date();
         const isLimitExceeded = await youtubeService.logComments();
         await this.exit(isLimitExceeded ? Status.LIMIT_EXCEEDED : Status.FINISH);
@@ -39,17 +45,17 @@ class CommentsLogic {
 
     async sleep() {
         await globalUtils.sleep(countLimitService.countLimitData.millisecondsEndDelayCount);
-    } */
+    }
 
     // Let the user confirm all the IMPORTANT settings before the process starts.
     async confirm() {
-/*         if (!await confirmationService.confirm(settings)) {
-            await this.exit(Status.ABORT_BY_THE_USER);
-        } */
+        /*         if (!await confirmationService.confirm(settings)) {
+                    await this.exit(Status.ABORT_BY_THE_USER);
+                } */
     }
 
-/*     updateStatus(text, status) {
-        logUtils.logMagentaStatus(text);
+    updateStatus(text, status) {
+        logUtils.logStatus(text);
         if (applicationService.applicationData) {
             applicationService.applicationData.status = status;
         }
@@ -60,12 +66,15 @@ class CommentsLogic {
             applicationService.applicationData.status = status;
             await this.sleep();
         }
+        logUtils.logSpace();
         systemUtils.exit(status);
-    } */
+    }
 }
 
 module.exports = CommentsLogic;
-
+/*         //console.log('ok');
+        //const isLimitExceeded = await youtubeService.logComments();
+        //await this.exit(isLimitExceeded ? Status.LIMIT_EXCEEDED : Status.FINISH); */
 /* const settings = require('../settings/settings');
 const { Color, Mode, Status } = require('../core/enums');
 const { applicationService, confirmationService, countLimitService, logService, nSpellService,

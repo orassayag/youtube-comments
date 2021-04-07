@@ -1,17 +1,11 @@
+const logUtils = require('./log.utils');
+
 class SystemUtils {
 
     constructor() { }
-}
 
-module.exports = new SystemUtils();
-
-/* const logUtils = require('./log.utils'); */
-
-/*     exit(exitReason, color) {
-        logUtils.logColorStatus({
-            status: this.getExitReason(exitReason),
-            color: color
-        });
+    exit(exitReason) {
+        logUtils.logStatus(this.getExitReason(exitReason));
         process.exit(0);
     }
 
@@ -20,4 +14,7 @@ module.exports = new SystemUtils();
             return '';
         }
         return `EXIT: ${exitReason}`;
-    } */
+    }
+}
+
+module.exports = new SystemUtils();

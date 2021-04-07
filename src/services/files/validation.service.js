@@ -9,6 +9,7 @@ class ValidationService {
 
     async validateInternetConnection() {
         const url = applicationService.applicationData.validationConnectionLink;
+        debugger;
         let isConnected = true;
         for (let i = 0; i < countLimitService.countLimitData.maximumURLValidationCount; i++) {
             try {

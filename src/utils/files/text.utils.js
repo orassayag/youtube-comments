@@ -1,4 +1,5 @@
 const validationUtils = require('./validation.utils');
+const regexUtils = require('./regex.utils');
 
 class TextUtils {
 
@@ -46,15 +47,45 @@ class TextUtils {
         }
         return `${text}/`;
     }
+
+    // This method converts a given number to display comma number.
+    getNumberWithCommas(number) {
+        if (number <= -1 || !validationUtils.isValidNumber(number)) {
+            return '';
+        }
+        return number.toString().replace(regexUtils.numberCommasRegex, ',');
+    }
+
+    removeLastCharacters(data) {
+        const { value, charactersCount } = data;
+        if (!value || !validationUtils.isValidNumber(charactersCount)) {
+            return '';
+        }
+        return value.substring(0, value.length - charactersCount);
+    }
+
+    calculatePercentageDisplay(data) {
+        const { partialValue, totalValue } = data;
+        if (!validationUtils.isValidNumber(partialValue) || !validationUtils.isValidNumber(totalValue)) {
+            return '';
+        }
+        return `${this.addLeadingZero(((100 * partialValue) / totalValue).toFixed(2))}%`;
+    }
+
+    getNumberOfNumber(data) {
+        const { number1, number2 } = data;
+        if (!validationUtils.isValidNumber(number1) || !validationUtils.isValidNumber(number2)) {
+            return '';
+        }
+        return `${this.getNumberWithCommas(number1)}/${this.getNumberWithCommas(number2)}`;
+    }
 }
 
 module.exports = new TextUtils();
 
 /*     */
 
-/* const colorUtils = require('./color.utils');
-const regexUtils = require('./regex.utils');
-const validationUtils = require('./validation.utils'); */
+/* const colorUtils = require('./color.utils');*/
 
 /*
 
@@ -72,22 +103,6 @@ const validationUtils = require('./validation.utils'); */
         return name.replace(regexUtils.clearNoneAlphabets, character);
     }
 
-    calculatePercentageDisplay(data) {
-        const { partialValue, totalValue } = data;
-        if (!validationUtils.isValidNumber(partialValue) || !validationUtils.isValidNumber(totalValue)) {
-            return '';
-        }
-        return `${this.addLeadingZero(((100 * partialValue) / totalValue).toFixed(2))}%`;
-    }
-
-    removeLastCharacters(data) {
-        const { value, charactersCount } = data;
-        if (!value || !validationUtils.isValidNumber(charactersCount)) {
-            return '';
-        }
-        return value.substring(0, value.length - charactersCount);
-    }
-
     setLogStatusColored(status, color) {
         if (!status || !color) {
             return '';
@@ -97,14 +112,6 @@ const validationUtils = require('./validation.utils'); */
             color: color
         });
         return `${delimiter}${status}${delimiter}`;
-    }
-
-    // This method converts a given number to display comma number.
-    getNumberWithCommas(number) {
-        if (number <= -1 || !validationUtils.isValidNumber(number)) {
-            return '';
-        }
-        return number.toString().replace(regexUtils.numberCommasRegex, ',');
     }
 
     getSplitNumber(text) {
@@ -130,14 +137,6 @@ const validationUtils = require('./validation.utils'); */
             return -1;
         }
         return Math.floor(number);
-    }
-
-    getNumberOfNumber(data) {
-        const { number1, number2 } = data;
-        if (!validationUtils.isValidNumber(number1) || !validationUtils.isValidNumber(number2)) {
-            return '';
-        }
-        return `${this.getNumberWithCommas(number1)}/${this.getNumberWithCommas(number2)}`;
     }
 
     cutText(data) {
