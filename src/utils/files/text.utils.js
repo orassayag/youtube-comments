@@ -79,76 +79,6 @@ class TextUtils {
         }
         return `${this.getNumberWithCommas(number1)}/${this.getNumberWithCommas(number2)}`;
     }
-}
-
-module.exports = new TextUtils();
-
-/*     */
-
-/* const colorUtils = require('./color.utils');*/
-
-/*
-
-    getSplitWords(name) {
-        if (!name) {
-            return name;
-        }
-        return name.split(regexUtils.splitWords);
-    }
-
-    replaceNoneAlphabets(name, character) {
-        if (!name) {
-            return name;
-        }
-        return name.replace(regexUtils.clearNoneAlphabets, character);
-    }
-
-    setLogStatusColored(status, color) {
-        if (!status || !color) {
-            return '';
-        }
-        const delimiter = colorUtils.createColorMessage({
-            message: this.b,
-            color: color
-        });
-        return `${delimiter}${status}${delimiter}`;
-    }
-
-    getSplitNumber(text) {
-        if (!text) {
-            return -1;
-        }
-        return Number(text.split('_')[0]);
-    }
-
-    getPositiveNumber(number) {
-        if (!validationUtils.isValidNumber(number)) {
-            return -1;
-        }
-        return Math.abs(number);
-    }
-
-    getFloorPositiveNumber(number) {
-        return this.addLeadingZero(this.getFloorNumber(number));
-    }
-
-    getFloorNumber(number) {
-        if (!validationUtils.isValidNumber(number)) {
-            return -1;
-        }
-        return Math.floor(number);
-    }
-
-    cutText(data) {
-        const { text, count } = data;
-        if (!text) {
-            return '';
-        }
-        if (text.length > count) {
-            return text.substring(0, count);
-        }
-        return text;
-    }
 
     addBreakLine(text) {
         return `${text}\r\n`;
@@ -160,14 +90,6 @@ module.exports = new TextUtils();
         }
         return text.substring(0, text.length - 1);
     }
+}
 
-    capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    }
-
-    lowerCaseList(list) {
-        if (!validationUtils.isExists(list)) {
-            return list;
-        }
-        return list.map(i => this.toLowerCase(i));
-    } */
+module.exports = new TextUtils();

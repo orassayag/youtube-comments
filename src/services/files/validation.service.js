@@ -9,7 +9,6 @@ class ValidationService {
 
     async validateInternetConnection() {
         const url = applicationService.applicationData.validationConnectionLink;
-        debugger;
         let isConnected = true;
         for (let i = 0; i < countLimitService.countLimitData.maximumURLValidationCount; i++) {
             try {
@@ -25,7 +24,7 @@ class ValidationService {
             }
         }
         if (!isConnected) {
-            throw new Error(`${url} is not available (1000014)`);
+            throw new Error(`${url} is not available (1000012)`);
         }
     }
 }

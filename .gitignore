@@ -8,8 +8,6 @@ node_modules
 /.pnp
 .pnp.js
 
-api.txt
-
 # Temporary directories for any environment mode.
 # Compiled binary addons.
 # (http://nodejs.org/api/addons.html)
@@ -26,11 +24,6 @@ dist
 sources/
 /sources
 sources
-
-# Dictionaries.
-dictionaries/
-/dictionaries
-dictionaries
 
 # Misc.
 **/misc/backup/

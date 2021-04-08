@@ -10,8 +10,3 @@ class RegexUtils {
 }
 
 module.exports = new RegexUtils();
-
-/*
-		this.splitWords = /(?=[A-Z])|[\s, _.-]+/;
-		this.clearNoneAlphabets = /[^A-Za-z'`]/g;
- */

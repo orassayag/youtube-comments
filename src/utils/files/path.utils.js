@@ -8,11 +8,11 @@ class PathUtils {
         const { targetPath, targetName } = data;
         // Check if the targetPath parameter was received.
         if (!targetPath) {
-            throw new Error(`targetPath not received: ${targetPath} (1000024)`);
+            throw new Error(`targetPath not received: ${targetPath} (1000035)`);
         }
         // Check if the fileName parameter was received.
         if (!targetName) {
-            throw new Error(`targetName not received: ${targetName} (1000025)`);
+            throw new Error(`targetName not received: ${targetName} (1000036)`);
         }
         return path.join(targetPath, targetName);
     }
@@ -31,27 +31,3 @@ class PathUtils {
 }
 
 module.exports = new PathUtils();
-
-
-
-/*
-
-getFileName(filePath) {
-    return path.parse(filePath).name;
-}
-
-getFullFileName(filePath) {
-    return path.parse(filePath).base;
-}
-
-getDirectoryName(directoryPath) {
-    return directoryPath.split('\\').pop();
-}
-
-resolve(directory, direntName) {
-    return path.resolve(directory, direntName);
-}
-
-getExtname(filePath) {
-    return path.extname(filePath).slice(1);
-} */

@@ -17,18 +17,3 @@ const Status = enumUtils.createEnum([
 ]);
 
 module.exports = { ScriptType, Status };
-/*     ['SCAN', 'scan'], */
-/*     ['DOWNLOAD', 'DOWNLOAD'],
-    ['IMPLEMENT', 'IMPLEMENT'],
-    ['SCAN', 'SCAN'], */
-/* Method, Mode,  */
-/* const Method = enumUtils.createEnum([
-    ['NAME', 'NAME'],
-    ['CONTENT', 'CONTENT']
-]);
-
-const Mode = enumUtils.createEnum([
-    ['STANDARD', 'STANDARD'],
-    ['SILENT', 'SILENT']
-]);
- */

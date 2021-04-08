@@ -1,15 +1,15 @@
-const pathUtils = require('../utils/files/path.utils');
+const { pathUtils } = require('../utils');
 
 const settings = {
     // ===GENERAL=== //
-    // Determine the YouTube video Id from which to fetch all the comments.
-    VIDEO_ID: 'y1STthONg-c',
+    // Determine the YouTube video Id from which to fetch all the comments. Example: 'y1STthONg-c'.
+    VIDEO_ID: '',
     // Determine the YouTube's API base URL to call in order to get the comments.
     API_BASE_URL: 'https://www.googleapis.com/youtube/v3/',
 
     // ===LOG=== //
-    // Determine the name of the resulting comments new TXT file in the 'dist' directory.
-    DIST_FILE_NAME: 'comments-',
+    // Determine the name of the resulting comments in the new TXT file in the 'dist' directory.
+    DIST_FILE_NAME: 'comments',
 
     // ===COUNT & LIMIT=== //
     // Determine the total maximum comments count to fetch per session. If the limit exceeds, the application exits.
@@ -17,7 +17,7 @@ const settings = {
     // Determine the delay in milliseconds to pause between API calls to fetch comments.
     // Please note that the daily limit is 200,000 read operations.
     MILLISECONDS_FETCH_DELAY_COUNT: 1000,
-    // Determine the maximum comments to fetch per API call. Minimum = 1; Maximum = 100 (YouTube API restritions).
+    // Determine the maximum comments to fetch per API call. Minimum = 1; Maximum = 100 (YouTube API restrictions).
     MAXIMUM_FETCH_COMMENTS_COUNT: 100,
     // Determine the delay in milliseconds to pause before exiting the application in the end.
     MILLISECONDS_END_DELAY_COUNT: 1000,
@@ -31,7 +31,7 @@ const settings = {
     // and in the correct structure, as in the 'misc/examples/apiKey.json' file.
     API_KEY_PATH: pathUtils.getJoinPath({
         targetPath: __dirname,
-        targetName: '../../../../../../Users/Or/Dropbox/accounts/youtube/apikey.json'
+        targetName: '../../../../../../Users/Or/Dropbox/accounts/youtube/apiKey.json'
     }),
 
     // ===ROOT PATH=== //
@@ -95,4 +95,3 @@ const settings = {
 };
 
 module.exports = settings;
-/* const { Method, Mode } = require('../core/enums'); */

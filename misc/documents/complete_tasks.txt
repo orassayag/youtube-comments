@@ -1,2 +1,46 @@
 Completed + canceled tasks:
 ===========================
+-Validates that the YouTube video exists by an API call. *
+-Log all the comments into a TXT file on the dist directory. *
+-Before the log, delete the file with the same name. *
+-Print on the console the status: Writing: 45/4,837 (67.56%). *
+-Clear all JavaScript files, and .gitignore unneeded paths. *
+-Add to 'misc' directory an example JSON file as an example of an API key JSON structure file. *
+-Edit the INSTRUCTIONS.md, README.MD, and package.json files. *
+-Clear the 'VIDEO_ID' parameter in settings.js. *
+-Update packages + Recreate package-lock.json. *
+-Remove code comments to a backup TXT file. *
+-Convert " to ' in the relevant places. *
+-Remove all 'debugger' keywords. *
+-Recheck error numbers in error_index.txt. *
+-Check 'let' needs to be converted to 'const'. *
+-Check places to change from simple parameters with dynamic objects to classes. *
+-Make sure all comments '//' have: 1. space 2. ends with a dot. *
+-Make sure 'id' => 'Id', 'url' => 'URL', 'api' => 'API'. *
+-Make sure spaces in all files between bottom, need to fix cases like this: *
+} *
+module.exports *
+} *
+export default *
+-Change all '.length > 0' to 'isExists'. *
+-In settings.js convert utils path to index, and check if it still works. *
+-Remove duplicate import/require (convert to index.js if possible).
+-Sort alphabetically all the imports/requires by https://alphabetizer.flap.tv/. *
+-Sort alphabetically all the imports/requires: external packages, settings, (containers, components, store, assert) data, models, enums, services, utils. *
+-File extensions should be upper case: JSON, TXT, etc. *
+-Remove the space lines inside methods and functions. *
+-Remove the duplicate empty lines: \n\s*\n\s*\n *
+-Remove the last empty line: \n\s*$(?!\n) *
+-Detect all comments without a dot at the end: ^// .*(?<!\.)$ *
+-Do all the 'ToDo' tasks. *
+-Fix TXT files spell mistakes via Gmail.
+-Format all documents.
+-Pull all the comments from the video + Move it to the 'daily' directory. *
+-Verify all works well. *
+-Move all complete tasks from here to complete_tasks.txt. *
+-Upload to GitHub. *
+-Backup to iOmega. *
+-Investigate how to pull out all the comments from a YouTube video by YouTube key. *
+-Validate that the max results is no more than 100. *
+-Build a script that: *
+-Validates a given YouTube video Id - Basic validation + Regex. *

@@ -53,15 +53,3 @@ class ValidationUtils {
 }
 
 module.exports = new ValidationUtils();
-
-/*
-
-
-    // This method validates if a given variable is a valid boolean and returns the result.
-    isValidBoolean(boolean) {
-        return typeof boolean == typeof true;
-    }
-
-    isValidDate(dateTime) {
-        return dateTime instanceof Date;
-    } */

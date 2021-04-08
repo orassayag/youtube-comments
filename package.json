@@ -2,7 +2,7 @@
   "name": "youtube-comments",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "Built in April 2021. A simple Node.js application to fetch and log all the comments of a specific YouTube video, by using the YouTube V3 REST API.",
   "keywords": [
     "scan",
     "paths",
