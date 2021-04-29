@@ -1,4 +1,4 @@
-const { Placeholder } = require('./files/youtubeQuery.enum');
-const { ScriptType, Status } = require('./files/system.enum');
+const { PlaceholderEnum } = require('./files/youtubeQuery.enum');
+const { ScriptTypeEnum, StatusEnum } = require('./files/system.enum');
 
-module.exports = { Placeholder, ScriptType, Status };
+module.exports = { PlaceholderEnum, ScriptTypeEnum, StatusEnum };

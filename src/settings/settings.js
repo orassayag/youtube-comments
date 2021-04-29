@@ -68,8 +68,6 @@ const settings = {
     PACKAGE_JSON_PATH: 'package.json',
     // (Working example: 'C:\\Or\\Web\\youtube-comments\\youtube-comments\\package-lock.json').
     PACKAGE_LOCK_JSON_PATH: 'package-lock.json',
-    // (Working example: 'C:\\Or\\Web\\youtube-comments\\youtube-comments\\dictionaries').
-    DICTIONARIES_PATH: 'dictionaries',
 
     // ===BACKUP=== //
     // Determine the directories to ignore when a backup copy is taking place.

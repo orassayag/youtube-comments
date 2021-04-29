@@ -1,5 +1,51 @@
 Completed + canceled tasks:
 ===========================
+-Update packages + Recreate package-lock.json. *
+-Update the package.json keywords and the topics of the project in GitHub. *
+-Clear unused enums and make sure all in used really exists. *
+-Remove the 'destination' parameter in the 'filterDirectories' method + Verify that backup still works. *
+-Rename and check: countLimitService.countLimitData.millisecondsSendEmailDelayCount. *
+-Check and reset the '.vscode/settings.json' by 'C:/Or/Web/auto-packages-updater/auto-packages-updater/.vscode/settings.json' + *
+Format all documents and re-add 'cSpell.words' all the words + add the 'cSpell.ignorePaths'. *
+-Convert all 'new Date()' to be from the timeUtils. Change in all places. *
+-All time logic is in place + Take the 'getCurrentDate' function from the 'event-dates-calendar' project. *
+-In validation file path (probably a JSON file) there is a 'Expected a number' comment, need to fix it *
+(take the comment from the auto-packages-updater project). *
+-Convert 'removeLastCharacter' to use 'removeLastCharacters'. *
+-Replace the 'getCurrentDate' method with the updated one from the 'udemy-courses' project. *
+-Make sure to have space between /* cSpell:disable */ in the 'INSTRUCTIONS.md' file. *
+-Make sure to fix the grammar mistake in the 'enum.utils.js' file (an enum-like object). *
+-In the 'README.md' file, fix in all places to 'In the terminal'. *
+-Take the latest settings from '.vscode/settings.json' and implement them. *
+-Change in all places that globalUtils will be on top. *
+-Make sure that all places 'this.exit' function - Need to be 'await this.exit'. *
+-Search for 'async ' and create a list of functions/methods, and make sure that all calls have await. *
+-Scan all files for spell mistakes with the 'files-spell-checker' project. *
+-In the 'package.json' file change to 'private: false'. *
+-Convert in all places from all versions of canceled keyword to 'Canceled' keyword. *
+-Change all (where it's possible) from 'console.log' to 'logUtils.log'. *
+-Add in all places 'name.model' to all models. *
+-Check that in all places the name of the file includes the name of tha parent directory. For example: name.model inside 'models' directory. *
+-Don't forget to do the same rename logic for all the enums in the project. *
+-Change in all places the config from 'misc/backup' to 'misc/backups' directory. *
+-Copy the '.eslintignore' file from the 'udemy-courses' project. *
+-Add to the 'package.json' file (below the 'description' field) the 'repository' field: *
+"repository": { *
+  "type": "git", *
+  "url": "git://github.com/username/repository.git" *
+} *
+-Make sure all switch-case have curly braces. *
+-Remove code comments to a backup TXT file. *
+-Remove the duplicate empty lines: \n\s*\n\s*\n *
+-Remove the first empty line: ^(?<![\s])\n *
+-Remove the last empty line: \n\s*$(?!\n) *
+-Detect all comments without a dot at the end: ^// .*(?<!\.)$ *
+-Format all documents. *
+-Verify all works well. *
+-Fix TXT files spell mistakes via Gmail. *
+-Move all complete tasks from here to complete_tasks.txt. *
+-Upload to GitHub. *
+-Backup to iOmega. *
 -Validates that the YouTube video exists by an API call. *
 -Log all the comments into a TXT file on the dist directory. *
 -Before the log, delete the file with the same name. *

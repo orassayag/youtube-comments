@@ -1,8 +1,12 @@
 {
   "name": "youtube-comments",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Built in April 2021. A simple Node.js application to fetch and log all the comments of a specific YouTube video, by using the YouTube V3 REST API.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/youtube-comments.git"
+  },
   "keywords": [
     "scan",
     "paths",
@@ -49,7 +53,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.23.0",
+    "eslint": "^7.25.0",
     "fs-extra": "^9.1.0",
     "is-reachable": "^5.0.0"
   }

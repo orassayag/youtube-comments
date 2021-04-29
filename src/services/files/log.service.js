@@ -1,11 +1,11 @@
-const { LogData } = require('../../core/models');
+const { LogDataModel } = require('../../core/models');
 const pathService = require('./path.service');
 const { fileUtils, logUtils, textUtils } = require('../../utils');
 
 class LogService {
 
 	constructor() {
-		this.logData = null;
+		this.logDataModel = null;
 		// ===PATH=== //
 		this.baseSessionPath = null;
 		this.distFileName = null;
@@ -13,15 +13,15 @@ class LogService {
 	}
 
 	async initiate(settings, videoId) {
-		this.logData = new LogData(settings);
+		this.logDataModel = new LogDataModel(settings);
 		await this.initiateDirectories(videoId);
 	}
 
 	async initiateDirectories(videoId) {
 		// ===PATH=== //
-		this.baseSessionPath = pathService.pathData.distPath;
+		this.baseSessionPath = pathService.pathDataModel.distPath;
 		fileUtils.createDirectory(this.baseSessionPath);
-		this.distFileName = `${this.baseSessionPath}\\${this.logData.distFileName}-${videoId}.txt`;
+		this.distFileName = `${this.baseSessionPath}\\${this.logDataModel.distFileName}-${videoId}.txt`;
 		await fileUtils.removeFile(this.distFileName);
 	}
 
@@ -58,7 +58,10 @@ class LogService {
 			'MILLISECONDS_FETCH_DELAY_COUNT', 'MAXIMUM_FETCH_COMMENTS_COUNT'];
 		let settingsText = Object.keys(settings).filter(s => parameters.indexOf(s) > -1)
 			.map(k => this.createLineTemplate(k, settings[k])).join('');
-		settingsText = textUtils.removeLastCharacter(settingsText);
+		settingsText = textUtils.removeLastCharacters({
+			value: settingsText,
+			charactersCount: 1
+		});
 		return `${textUtils.setLogStatus('IMPORTANT SETTINGS')}
 ${settingsText}
 ========================

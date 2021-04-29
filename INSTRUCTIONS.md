@@ -9,8 +9,8 @@ FAST & BASIC START.
 4. Go to 'VIDEO_ID' and enter there the YouTube video Id from which to fetch all the comments.
 5. In 'API_KEY_PATH' - Place the path to the JSON file with the YouTube API key. An example for the JSON file can be found
    in 'misc/examples' directory.
-7. Next - Time to install the NPM packages. On the terminal run 'npm i'. It will install automatically all the required NPM packages.
-8. On terminal run 'npm start'. If everything goes well, you will start to see the console status line appear.
+7. Next - Time to install the NPM packages. In the terminal run 'npm i'. It will install automatically all the required NPM packages.
+8. In the terminal run 'npm start'. If everything goes well, you will start to see the console status line appear.
 9. If you see any error - Need to check what's changed. Current to 18/02/2021, it works fine.
 10. If you see the console status line but the 'Writing comments' not progressing - Need to check what's wrong.
 11. If no errors and the progress works OK, make sure to check on dist that the TXT file was created successfully.

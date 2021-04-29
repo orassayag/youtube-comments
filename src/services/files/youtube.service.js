@@ -1,5 +1,5 @@
-const { YouTubeData } = require('../../core/models');
-const { Placeholder } = require('../../core/enums');
+const { YouTubeDataModel } = require('../../core/models');
+const { PlaceholderEnum } = require('../../core/enums');
 const axiosService = require('./axios.service');
 const countLimitService = require('./countLimit.service');
 const logService = require('./log.service');
@@ -10,17 +10,17 @@ const { fileUtils, pathUtils, validationUtils } = require('../../utils');
 class YoutubeService {
 
     constructor() {
-        this.youtubeData = null;
+        this.youtubeDataModel = null;
     }
 
     initiate(settings) {
-        this.youtubeData = new YouTubeData(settings);
+        this.youtubeDataModel = new YouTubeDataModel(settings);
     }
 
     async logComments() {
         // First, get the API key from the external source JSON file.
         await this.getAPIKey({
-            path: pathService.pathData.apiKeyPath,
+            path: pathService.pathDataModel.apiKeyPath,
             parameterName: 'API_KEY_PATH',
             fileExtension: '.json'
         });
@@ -36,7 +36,7 @@ class YoutubeService {
     async getAPIKey(data) {
         const { path, parameterName, fileExtension } = data;
         if (!await fileUtils.isPathExists(path)) {
-            throw new Error(`Invalid or no ${parameterName} parameter was found: Expected a number but received: ${path} (1000013)`);
+            throw new Error(`Path not exists: ${path} (10000013)`);
         }
         if (!fileUtils.isFilePath(path)) {
             throw new Error(`The parameter path ${parameterName} marked as file but it's a path of a directory: ${path} (1000014)`);
@@ -56,16 +56,16 @@ class YoutubeService {
         if (!validationUtils.isValidYouTubeAPIKey(jsonData.api_key)) {
             throw new Error('Invalid api_key parameter (1000018)');
         }
-        this.youtubeData.apiKey = jsonData.api_key.trim();
+        this.youtubeDataModel.apiKey = jsonData.api_key.trim();
     }
 
     async validateVideoId() {
-        const url = `${this.youtubeData.apiBaseURL}${this.youtubeData.videoDetailsQuery
-            .replace(Placeholder.VIDEO_ID, this.youtubeData.videoId)
-            .replace(Placeholder.KEY, this.youtubeData.apiKey)}`;
+        const url = `${this.youtubeDataModel.apiBaseURL}${this.youtubeDataModel.videoDetailsQuery
+            .replace(PlaceholderEnum.VIDEO_ID, this.youtubeDataModel.videoId)
+            .replace(PlaceholderEnum.KEY, this.youtubeDataModel.apiKey)}`;
         const response = await axiosService.getRequest(url);
         if (!response || !response.data) {
-            throw new Error(`Video ${this.youtubeData.videoId} not exists via YouTube API details call (1000019)`);
+            throw new Error(`Video ${this.youtubeDataModel.videoId} not exists via YouTube API details call (1000019)`);
         }
         if (!validationUtils.isPropertyExists(response.data, 'items')) {
             throw new Error('Missing `items` field in the JSON response (1000020)');
@@ -77,8 +77,8 @@ class YoutubeService {
             throw new Error('Missing `items.id` field in the JSON response (1000022)');
         }
         const responseVideoId = response.data.items[0].id.trim();
-        if (this.youtubeData.videoId !== responseVideoId) {
-            throw new Error(`Mismatch video Ids between settings and API response: ${this.youtubeData.videoId} | ${responseVideoId} (1000023)`);
+        if (this.youtubeDataModel.videoId !== responseVideoId) {
+            throw new Error(`Mismatch video Ids between settings and API response: ${this.youtubeDataModel.videoId} | ${responseVideoId} (1000023)`);
         }
         return response.data.items[0];
     }
@@ -90,23 +90,23 @@ class YoutubeService {
         if (!validationUtils.isPropertyExists(videoDetails.statistics, 'commentCount')) {
             throw new Error('Missing `items.statistics.commentCount` field in the JSON response (1000025)');
         }
-        this.youtubeData.commentsCount = parseInt(videoDetails.statistics.commentCount);
+        this.youtubeDataModel.commentsCount = parseInt(videoDetails.statistics.commentCount);
     }
 
     async fetchComments() {
         let isFetchComments = true;
         let isLimitExceeded = false;
-        this.youtubeData.commentsIndex = 0;
+        this.youtubeDataModel.commentsIndex = 0;
         let pageToken = '';
         while (isFetchComments) {
-            const url = `${this.youtubeData.apiBaseURL}${this.youtubeData.videoCommentsQuery
-                .replace(Placeholder.VIDEO_ID, this.youtubeData.videoId)
-                .replace(Placeholder.MAX_RESULTS, countLimitService.countLimitData.maximumFetchCommentsCount)
-                .replace(Placeholder.PAGE_TOKEN, pageToken)
-                .replace(Placeholder.KEY, this.youtubeData.apiKey)}`;
+            const url = `${this.youtubeDataModel.apiBaseURL}${this.youtubeDataModel.videoCommentsQuery
+                .replace(PlaceholderEnum.VIDEO_ID, this.youtubeDataModel.videoId)
+                .replace(PlaceholderEnum.MAX_RESULTS, countLimitService.countLimitDataModel.maximumFetchCommentsCount)
+                .replace(PlaceholderEnum.PAGE_TOKEN, pageToken)
+                .replace(PlaceholderEnum.KEY, this.youtubeDataModel.apiKey)}`;
             const response = await axiosService.getRequest(url);
             if (!response || !response.data) {
-                throw new Error(`Video ${this.youtubeData.videoId} not exists via YouTube API details call (1000026)`);
+                throw new Error(`Video ${this.youtubeDataModel.videoId} not exists via YouTube API details call (1000026)`);
             }
             if (!validationUtils.isPropertyExists(response.data, 'items')) {
                 throw new Error('Missing `items` field in the JSON response (1000027)');
@@ -123,20 +123,20 @@ class YoutubeService {
                 isFetchComments = false;
             }
             for (let i = 0; i < comments.length; i++) {
-                this.youtubeData.commentsIndex++;
+                this.youtubeDataModel.commentsIndex++;
                 await this.logComment(comments[i]);
-                this.logProgress(this.youtubeData.commentsIndex);
-                if (this.youtubeData.commentsIndex >= this.youtubeData.commentsCount) {
+                this.logProgress(this.youtubeDataModel.commentsIndex);
+                if (this.youtubeDataModel.commentsIndex >= this.youtubeDataModel.commentsCount) {
                     isFetchComments = false;
                     break;
                 }
-                if (this.youtubeData.commentsIndex >= countLimitService.countLimitData.maximumCommentsCount) {
+                if (this.youtubeDataModel.commentsIndex >= countLimitService.countLimitDataModel.maximumCommentsCount) {
                     isFetchComments = false;
                     isLimitExceeded = true;
                     break;
                 }
             }
-            await globalUtils.sleep(countLimitService.countLimitData.millisecondsFetchDelayCount);
+            await globalUtils.sleep(countLimitService.countLimitDataModel.millisecondsFetchDelayCount);
         }
         return isLimitExceeded;
     }
@@ -160,7 +160,7 @@ class YoutubeService {
     logProgress(currentCommentsCount) {
         logService.logProgress({
             currentNumber: currentCommentsCount,
-            totalNumber: this.youtubeData.commentsCount
+            totalNumber: this.youtubeDataModel.commentsCount
         });
     }
 }

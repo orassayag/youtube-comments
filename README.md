@@ -13,7 +13,7 @@ Steps to view the solution:
 READ THE FOLLOWING SETTINGS BEFORE YOU BEGIN:
 
 -Instructions & How to use:
-In terminal: npm start
+In the terminal: npm start
 
 Happy testing! :)
 

@@ -83,13 +83,6 @@ class TextUtils {
     addBreakLine(text) {
         return `${text}\r\n`;
     }
-
-    removeLastCharacter(text) {
-        if (!text) {
-            return '';
-        }
-        return text.substring(0, text.length - 1);
-    }
 }
 
 module.exports = new TextUtils();
