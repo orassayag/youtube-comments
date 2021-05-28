@@ -24,6 +24,7 @@ You'll need to install VSCode, Node, and clone the application, and in the termi
 ## Built With
 
 * [Node.js](https://nodejs.org/en/) - The web framework used - Server side.
+* [Git](https://git-scm.com/) - Source management.
 
 ## Contributing
 
@@ -43,4 +44,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## License
 
-This application has an UNLICENSED License.
+This application has an UNLICENSED license.
