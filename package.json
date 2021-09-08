@@ -51,13 +51,13 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "fs-extra": "^10.0.0",
-    "is-reachable": "^5.0.0"
+    "is-reachable": "^5.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
-    "@types/node": "^16.7.2"
+    "@types/node": "^16.7.13"
   }
 }
