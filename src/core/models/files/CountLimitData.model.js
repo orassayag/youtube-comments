@@ -13,4 +13,4 @@ class CountLimitDataModel {
 	}
 }
 
-module.exports = CountLimitDataModel;
+export default CountLimitDataModel;

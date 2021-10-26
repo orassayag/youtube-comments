@@ -1,9 +1,11 @@
-const settings = require('../settings/settings');
-const { StatusEnum } = require('../core/enums');
-const { applicationService, confirmationService, countLimitService, logService,
-    pathService, validationService, youtubeService } = require('../services');
-const globalUtils = require('../utils/files/global.utils');
-const { logUtils, systemUtils, timeUtils } = require('../utils');
+import settings from '../settings/settings';
+import { StatusEnum } from '../core/enums';
+import {
+    applicationService, confirmationService, countLimitService, logService,
+    pathService, validationService, youtubeService
+} from '../services';
+import globalUtils from '../utils/files/global.utils';
+import { logUtils, systemUtils, timeUtils } from '../utils';
 
 class CommentsLogic {
 
@@ -71,4 +73,4 @@ class CommentsLogic {
     }
 }
 
-module.exports = CommentsLogic;
+export default CommentsLogic;

@@ -1,5 +1,5 @@
-const axios = require('axios');
-const { logUtils } = require('../../utils');
+import axios from 'axios';
+import { logUtils } from '../../utils';
 
 class AxiosService {
 
@@ -20,4 +20,4 @@ class AxiosService {
     }
 }
 
-module.exports = new AxiosService();
+export default new AxiosService();

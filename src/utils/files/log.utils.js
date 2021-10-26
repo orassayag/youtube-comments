@@ -1,5 +1,5 @@
-const textUtils = require('./text.utils');
-const validationUtils = require('./validation.utils');
+import textUtils from './text.utils';
+import validationUtils from './validation.utils';
 
 class LogUtils {
 
@@ -37,4 +37,4 @@ class LogUtils {
     }
 }
 
-module.exports = new LogUtils();
+export default new LogUtils();

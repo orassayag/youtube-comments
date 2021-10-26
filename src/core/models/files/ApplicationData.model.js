@@ -11,4 +11,4 @@ class ApplicationDataModel {
 	}
 }
 
-module.exports = ApplicationDataModel;
+export default ApplicationDataModel;

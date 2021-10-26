@@ -1,6 +1,6 @@
-const { LogDataModel } = require('../../core/models');
-const pathService = require('./path.service');
-const { fileUtils, logUtils, textUtils } = require('../../utils');
+import { LogDataModel } from '../../core/models';
+import pathService from './path.service';
+import { fileUtils, logUtils, textUtils } from '../../utils';
 
 class LogService {
 
@@ -69,4 +69,4 @@ OK to run? (y = yes)`;
 	}
 }
 
-module.exports = new LogService();
+export default new LogService();

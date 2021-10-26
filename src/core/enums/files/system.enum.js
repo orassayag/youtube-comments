@@ -1,4 +1,4 @@
-const enumUtils = require('../enum.utils');
+import enumUtils from '../enum.utils';
 
 const ScriptTypeEnum = enumUtils.createEnum([
     ['BACKUP', 'backup'],
@@ -15,4 +15,4 @@ const StatusEnum = enumUtils.createEnum([
     ['FINISH', 'FINISH']
 ]);
 
-module.exports = { ScriptTypeEnum, StatusEnum };
+export { ScriptTypeEnum, StatusEnum };

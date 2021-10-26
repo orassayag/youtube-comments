@@ -1,11 +1,11 @@
-const { YouTubeDataModel } = require('../../core/models');
-const { PlaceholderEnum } = require('../../core/enums');
-const axiosService = require('./axios.service');
-const countLimitService = require('./countLimit.service');
-const logService = require('./log.service');
-const pathService = require('./path.service');
-const globalUtils = require('../../utils/files/global.utils');
-const { fileUtils, pathUtils, validationUtils } = require('../../utils');
+import { YouTubeDataModel } from '../../core/models';
+import { PlaceholderEnum } from '../../core/enums';
+import axiosService from './axios.service';
+import countLimitService from './countLimit.service';
+import logService from './log.service';
+import pathService from './path.service';
+import globalUtils from '../../utils/files/global.utils';
+import { fileUtils, pathUtils, validationUtils } from '../../utils';
 
 class YoutubeService {
 
@@ -165,4 +165,4 @@ class YoutubeService {
     }
 }
 
-module.exports = new YoutubeService();
+export default new YoutubeService();

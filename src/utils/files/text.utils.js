@@ -1,5 +1,5 @@
-const validationUtils = require('./validation.utils');
-const regexUtils = require('./regex.utils');
+import validationUtils from './validation.utils';
+import regexUtils from './regex.utils';
 
 class TextUtils {
 
@@ -85,4 +85,4 @@ class TextUtils {
     }
 }
 
-module.exports = new TextUtils();
+export default new TextUtils();

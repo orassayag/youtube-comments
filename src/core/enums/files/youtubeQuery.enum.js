@@ -1,4 +1,4 @@
-const enumUtils = require('../enum.utils');
+import enumUtils from '../enum.utils';
 
 const PlaceholderEnum = enumUtils.createEnum([
     ['VIDEO_ID', '#VIDEO_ID#'],
@@ -7,4 +7,4 @@ const PlaceholderEnum = enumUtils.createEnum([
     ['PAGE_TOKEN', '#PAGE_TOKEN#']
 ]);
 
-module.exports = { PlaceholderEnum };
+export { PlaceholderEnum };

@@ -1,12 +1,12 @@
-const ApplicationDataModel = require('./files/ApplicationData.model');
-const BackupDataModel = require('./files/BackupData.model');
-const BackupDirectoryModel = require('./files/BackupDirectory.model');
-const CountLimitDataModel = require('./files/CountLimitData.model');
-const LogDataModel = require('./files/LogData.model');
-const PathDataModel = require('./files/PathData.model');
-const YouTubeDataModel = require('./files/YouTubeData.model');
+import ApplicationDataModel from './files/ApplicationData.model';
+import BackupDataModel from './files/BackupData.model';
+import BackupDirectoryModel from './files/BackupDirectory.model';
+import CountLimitDataModel from './files/CountLimitData.model';
+import LogDataModel from './files/LogData.model';
+import PathDataModel from './files/PathData.model';
+import YouTubeDataModel from './files/YouTubeData.model';
 
-module.exports = {
+export {
     ApplicationDataModel, BackupDataModel, BackupDirectoryModel, CountLimitDataModel, LogDataModel, PathDataModel,
     YouTubeDataModel
 };

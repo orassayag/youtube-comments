@@ -1,4 +1,4 @@
-const { PlaceholderEnum } = require('../../enums');
+import { PlaceholderEnum } from '../../enums';
 
 class YouTubeDataModel {
 
@@ -15,4 +15,4 @@ class YouTubeDataModel {
 	}
 }
 
-module.exports = YouTubeDataModel;
+export default YouTubeDataModel;

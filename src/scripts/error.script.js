@@ -9,4 +9,4 @@ class ErrorScript {
     }
 }
 
-module.exports = new ErrorScript();
+export default new ErrorScript();

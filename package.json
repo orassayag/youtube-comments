@@ -39,11 +39,12 @@
     "README.md"
   ],
   "scripts": {
-    "backup": "node src/scripts/backup.script.js",
-    "sand": "node src/tests/sandbox.test.js",
-    "start": "node src/scripts/comments.script.js",
+    "backup": "node --es-module-specifier-resolution=node src/scripts/backup.script.js",
+    "sand": "node --es-module-specifier-resolution=node src/tests/sandbox.test.js",
+    "start": "node --es-module-specifier-resolution=node src/scripts/comments.script.js",
     "stop": "taskkill -f -im node.exe"
   },
+  "type": "module",
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -51,13 +52,13 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "axios": "^0.23.0",
+    "axios": "^0.24.0",
     "fs-extra": "^10.0.0",
     "is-reachable": "^5.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
     "eslint": "^8.1.0",
-    "@types/node": "^16.11.4"
+    "@types/node": "^16.11.6"
   }
 }

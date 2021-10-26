@@ -1,4 +1,4 @@
-const regexUtils = require('./regex.utils');
+import regexUtils from './regex.utils';
 
 class ValidationUtils {
 
@@ -52,4 +52,4 @@ class ValidationUtils {
     }
 }
 
-module.exports = new ValidationUtils();
+export default new ValidationUtils();

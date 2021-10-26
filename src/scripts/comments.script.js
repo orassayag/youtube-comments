@@ -1,6 +1,7 @@
-const errorScript = require('./error.script');
-require('../services/files/initiate.service').initiate('comments');
-const CommentsLogic = require('../logics/comments.logic');
+import errorScript from './error.script';
+import initiateService from '../services/files/initiate.service';
+initiateService.initiate('comments');
+import CommentsLogic from '../logics/comments.logic';
 
 (async () => {
     await new CommentsLogic().run();

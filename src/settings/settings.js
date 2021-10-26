@@ -1,4 +1,8 @@
-const { pathUtils } = require('../utils');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { pathUtils } from '../utils';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const settings = {
     // ===GENERAL=== //
@@ -92,4 +96,4 @@ const settings = {
     VALIDATION_CONNECTION_LINK: 'google.com'
 };
 
-module.exports = settings;
+export default settings;
