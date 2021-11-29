@@ -54,11 +54,11 @@
   "dependencies": {
     "axios": "^0.24.0",
     "fs-extra": "^10.0.0",
-    "is-reachable": "^5.1.0"
+    "is-reachable": "^5.1.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "eslint": "^8.3.0",
-    "@types/node": "^16.11.9"
+    "@types/node": "^16.11.10"
   }
 }
