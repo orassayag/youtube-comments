@@ -53,7 +53,7 @@
   ],
   "dependencies": {
     "axios": "^0.26.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.0.1",
     "is-reachable": "^5.1.1"
   },
   "devDependencies": {
