@@ -57,8 +57,8 @@
     "is-reachable": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.6",
+    "@babel/eslint-parser": "^7.22.7",
     "eslint": "^8.44.0",
-    "@types/node": "^20.3.3"
+    "@types/node": "^20.4.0"
   }
 }
