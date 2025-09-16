@@ -52,8 +52,8 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "axios": "^1.12.1",
-    "fs-extra": "^11.3.1",
+    "axios": "^1.12.2",
+    "fs-extra": "^11.3.2",
     "is-reachable": "^6.0.0"
   },
   "devDependencies": {
