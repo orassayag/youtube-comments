@@ -7,6 +7,11 @@ import PathDataModel from './files/PathData.model';
 import YouTubeDataModel from './files/YouTubeData.model';
 
 export {
-    ApplicationDataModel, BackupDataModel, BackupDirectoryModel, CountLimitDataModel, LogDataModel, PathDataModel,
-    YouTubeDataModel
+  ApplicationDataModel,
+  BackupDataModel,
+  BackupDirectoryModel,
+  CountLimitDataModel,
+  LogDataModel,
+  PathDataModel,
+  YouTubeDataModel,
 };

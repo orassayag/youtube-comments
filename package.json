@@ -2,11 +2,7 @@
   "name": "youtube-comments",
   "version": "1.0.0",
   "private": false,
-  "description": "A Node.js application to fetch and log all comments from a specific YouTube video using the YouTube Data API v3. Features pagination support, rate limiting, real-time progress tracking, and secure API key management.",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/orassayag/youtube-comments.git"
-  },
+  "description": "A Node.js application to fetch & log all comments from a specific video using the YouTube Data API v3. This application provides a simple way to extract all comments from any public YouTube video and save them to a TXT file for analysis, archival, or research purposes, include pagination support",
   "keywords": [
     "youtube",
     "comments",
@@ -19,8 +15,24 @@
     "comment-extraction",
     "nodejs"
   ],
+  "homepage": "https://github.com/orassayag/youtube-comments#readme",
+  "bugs": {
+    "url": "https://github.com/orassayag/youtube-comments/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/youtube-comments.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/orassayag"
+  },
   "license": "MIT",
-  "author": "Or Assayag <orassayag@gmail.com>",
+  "author": {
+    "name": "Or Assayag",
+    "email": "orassayag@gmail.com",
+    "url": "https://github.com/orassayag"
+  },
   "contributors": [
     {
       "name": "Or Assayag",
@@ -28,18 +40,30 @@
       "url": "https://github.com/orassayag"
     }
   ],
-  "main": "src/scripts/comments.script.js",
+  "type": "module",
+  "main": "src/index.js",
   "files": [
+    ".github",
+    ".vscode",
+    "dist",
+    "misc",
     "src",
     ".eslintignore",
     ".eslintrc",
     ".gitignore",
     ".jsbeautifyrc",
     ".npmignore",
+    ".prettierrc",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "eslint.config.mjs",
     "INSTRUCTIONS.md",
+    "LICENSE",
     "package-lock.json",
     "package.json",
-    "README.md"
+    "README.md",
+    "SECURITY.md"
   ],
   "scripts": {
     "backup": "node --es-module-specifier-resolution=node src/scripts/backup.script.js",
@@ -47,7 +71,6 @@
     "start": "node --es-module-specifier-resolution=node src/scripts/comments.script.js",
     "stop": "taskkill -f -im node.exe"
   },
-  "type": "module",
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -61,5 +84,9 @@
   },
   "devDependencies": {
     "eslint": "^10.0.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
   }
 }

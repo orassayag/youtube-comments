@@ -4,5 +4,5 @@ initiateService.initiate('backup');
 import BackupLogic from '../logics/backup.logic';
 
 (async () => {
-    await new BackupLogic().run();
-})().catch(e => errorScript.handleScriptError(e, 1));
+  await new BackupLogic().run();
+})().catch((e) => errorScript.handleScriptError(e, 1));

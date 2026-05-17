@@ -8,6 +8,12 @@ import validationService from './files/validation.service';
 import youtubeService from './files/youtube.service';
 
 export {
-    applicationService, axiosService, confirmationService, countLimitService, logService,
-    pathService, validationService, youtubeService
+  applicationService,
+  axiosService,
+  confirmationService,
+  countLimitService,
+  logService,
+  pathService,
+  validationService,
+  youtubeService,
 };

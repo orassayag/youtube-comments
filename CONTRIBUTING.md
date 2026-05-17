@@ -9,6 +9,7 @@ Everyone is welcome to contribute to this project. Contributing doesn't just mea
 ### Reporting Issues
 
 If you find a bug or have a feature request:
+
 1. Check if the issue already exists in the [GitHub Issues](https://github.com/orassayag/youtube-comments/issues)
 2. If not, create a new issue with:
    - Clear title and description
@@ -32,10 +33,12 @@ If you find a bug or have a feature request:
 ### Code Style Guidelines
 
 This project uses:
+
 - **JavaScript ES Modules** (type: "module")
 - **ESLint** for code quality
 
 Before submitting:
+
 ```bash
 # Install dependencies
 npm install
@@ -59,6 +62,7 @@ npm run backup
 ### Adding New Features
 
 When adding new features:
+
 1. Add service logic in `src/services/files/`
 2. Update utilities in `src/utils/files/` if needed
 3. Add models in `src/core/models/files/`
@@ -69,6 +73,7 @@ When adding new features:
 ### Error Code Management
 
 When adding new errors:
+
 1. Use the next available error code (1000XXX format)
 2. Format: `Error message (1000XXX)` at the end of the error message
 3. Keep error messages descriptive and actionable
@@ -76,6 +81,7 @@ When adding new errors:
 ### API Usage Guidelines
 
 When modifying YouTube API calls:
+
 1. Respect rate limits (200,000 read operations per day)
 2. Implement proper pagination using nextPageToken
 3. Validate all API response fields before accessing
@@ -85,9 +91,9 @@ When modifying YouTube API calls:
 
 Please feel free to contact me with any question, comment, pull-request, issue, or any other thing you have in mind.
 
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
 
 Thank you for contributing! 🙏

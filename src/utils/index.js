@@ -8,6 +8,12 @@ import timeUtils from './files/time.utils';
 import validationUtils from './files/validation.utils';
 
 export {
-    fileUtils, logUtils, pathUtils, regexUtils, systemUtils, textUtils, timeUtils,
-    validationUtils
+  fileUtils,
+  logUtils,
+  pathUtils,
+  regexUtils,
+  systemUtils,
+  textUtils,
+  timeUtils,
+  validationUtils,
 };

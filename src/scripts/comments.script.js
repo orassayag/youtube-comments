@@ -4,5 +4,5 @@ initiateService.initiate('comments');
 import CommentsLogic from '../logics/comments.logic';
 
 (async () => {
-    await new CommentsLogic().run();
-})().catch(e => errorScript.handleScriptError(e, 1));
+  await new CommentsLogic().run();
+})().catch((e) => errorScript.handleScriptError(e, 1));
